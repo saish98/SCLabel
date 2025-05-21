@@ -15,14 +15,14 @@ public struct SCLabelView: View {
     
     public var body: some View {
         VStack(alignment: .center) {
-            Text("Welcome to My SwiftUI View!")
+            Text(config.displayModel.title)
                 .font(config.theme.titleFont)
                 .foregroundColor(config.theme.titleColor)
                 .padding()
                 .frame(maxWidth: .infinity)
                 .background(.yellow)
 
-            Text("This is a reusable view from a Swift Package.")
+            Text(config.displayModel.subtitle)
                 .font(config.theme.subtitleFont)
                 .foregroundColor(config.theme.subtitleColor)
                 .padding()
@@ -72,7 +72,8 @@ struct SCLabelDisplayModel {
     let title: String
     let subtitle: String
     
-    init(title: String = "", subtitle: String = "") {
+    init(title: String = "Welcome to My SwiftUI View!",
+         subtitle: String = "This is a reusable view from a Swift Package.") {
         self.title = title
         self.subtitle = subtitle
     }
