@@ -45,9 +45,12 @@ public struct SCLabelView: View {
 }
 
 #Preview {
-    var mockConfiguration: SCLabelConfiguration {
-        .init()
-    }
+    let mockConfiguration: SCLabelConfiguration = SCLabelConfiguration(
+        displayModel: SCLabelDisplayModel(title: "Welcome to My SwiftUI View!",
+                                          subtitle: "This is a reusable view from a Swift Package."),
+        theme: SCLabelTheme(titleFont: .largeTitle, titleColor: .black,
+                            subtitleFont: .body, subtitleColor: .brown)
+    )
 
     SCLabelView(config: mockConfiguration, buttonAction: {})
 }
@@ -61,11 +64,6 @@ public struct SCLabelConfiguration {
         self.displayModel = displayModel
         self.theme = theme
     }
-    
-    init() {
-        self.displayModel = .init()
-        self.theme = .init()
-    }
 }
 
 public struct SCLabelDisplayModel {
@@ -76,11 +74,6 @@ public struct SCLabelDisplayModel {
          subtitle: String) {
         self.title = title
         self.subtitle = subtitle
-    }
-    
-    init() {
-        self.title = "Welcome to My SwiftUI View!"
-        self.subtitle = "This is a reusable view from a Swift Package."
     }
 }
 

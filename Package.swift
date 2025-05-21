@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    // Version 1.0.3
+    // Version 1.0.4
     name: "SCLabel",
     platforms: [
         .iOS(.v15), .macOS(.v15)
