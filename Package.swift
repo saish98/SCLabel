@@ -7,7 +7,7 @@ let package = Package(
     // Version 1.0.1
     name: "SCLabel",
     platforms: [
-        .iOS(.v14), .macOS(.v14)
+        .iOS(.v15), .macOS(.v15)
     ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
