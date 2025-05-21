@@ -70,7 +70,7 @@ public struct SCLabelDisplayModel {
     let title: String
     let subtitle: String
     
-    init(title: String,
+    public init(title: String,
          subtitle: String) {
         self.title = title
         self.subtitle = subtitle
@@ -83,7 +83,7 @@ public struct SCLabelTheme {
     let subtitleFont: Font
     let subtitleColor: Color
     
-    init(titleFont: Font = .largeTitle,
+    public init(titleFont: Font = .largeTitle,
          titleColor: Color = .black,
          subtitleFont: Font = .title2,
          subtitleColor: Color = .black) {
