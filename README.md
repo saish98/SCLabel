@@ -1,2 +1,2 @@
 # SCLabel
-Sample SPM 
+Sample SPM Demo 
