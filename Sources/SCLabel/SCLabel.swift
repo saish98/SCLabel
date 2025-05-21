@@ -68,7 +68,7 @@ public struct SCLabelConfiguration {
     }
 }
 
-struct SCLabelDisplayModel {
+public struct SCLabelDisplayModel {
     let title: String
     let subtitle: String
     
@@ -84,7 +84,7 @@ struct SCLabelDisplayModel {
     }
 }
 
-struct SCLabelTheme {
+public struct SCLabelTheme {
     let titleFont: Font
     let titleColor: Color
     let subtitleFont: Font
