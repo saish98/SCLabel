@@ -59,7 +59,7 @@ public struct SCLabelConfiguration {
     let displayModel: SCLabelDisplayModel
     let theme: SCLabelTheme
     
-    init(displayModel: SCLabelDisplayModel,
+    public init(displayModel: SCLabelDisplayModel,
          theme: SCLabelTheme) {
         self.displayModel = displayModel
         self.theme = theme
