@@ -5,21 +5,29 @@ import SwiftUI
 
 public struct SCLabelView: View {
     let buttonAction: () -> Void
+    private let config: SCLabelConfiguration
     
-    public init(buttonAction: @escaping () -> Void) {
+    public init(config: SCLabelConfiguration,
+                buttonAction: @escaping () -> Void) {
         self.buttonAction = buttonAction
+        self.config = config
     }
     
     public var body: some View {
-        VStack {
+        VStack(alignment: .center) {
             Text("Welcome to My SwiftUI View!")
-                .font(.largeTitle)
+                .font(config.theme.titleFont)
+                .foregroundColor(config.theme.titleColor)
                 .padding()
+                .frame(maxWidth: .infinity)
+                .background(.yellow)
 
             Text("This is a reusable view from a Swift Package.")
-                .font(.subheadline)
-                .foregroundColor(.gray)
+                .font(config.theme.subtitleFont)
+                .foregroundColor(config.theme.subtitleColor)
                 .padding()
+                .frame(maxWidth: .infinity)
+                .background(.green)
 
             Button(action: {
                 buttonAction()
@@ -32,5 +40,58 @@ public struct SCLabelView: View {
             }
         }
         .padding()
+        .background(.red)
     }
 }
+
+#Preview {
+    var mockConfiguration: SCLabelConfiguration {
+        .init()
+    }
+
+    SCLabelView(config: mockConfiguration, buttonAction: {})
+}
+
+public struct SCLabelConfiguration {
+    let displayModel: SCLabelDisplayModel
+    let theme: SCLabelTheme
+    
+    init(displayModel: SCLabelDisplayModel = .init(),
+         theme: SCLabelTheme = .init()) {
+        self.displayModel = displayModel
+        self.theme = theme
+    }
+    
+    init() {
+        self.displayModel = .init()
+        self.theme = .init()
+    }
+}
+
+struct SCLabelDisplayModel {
+    let title: String
+    let subtitle: String
+    
+    init(title: String = "", subtitle: String = "") {
+        self.title = title
+        self.subtitle = subtitle
+    }
+}
+
+struct SCLabelTheme {
+    let titleFont: Font
+    let titleColor: Color
+    let subtitleFont: Font
+    let subtitleColor: Color
+    
+    init(titleFont: Font = .largeTitle,
+         titleColor: Color = .black,
+         subtitleFont: Font = .title2,
+         subtitleColor: Color = .black) {
+        self.titleFont = titleFont
+        self.titleColor = titleColor
+        self.subtitleFont = subtitleFont
+        self.subtitleColor = subtitleColor
+    }
+}
+

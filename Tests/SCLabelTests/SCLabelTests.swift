@@ -4,7 +4,7 @@ import SwiftUI
 
 final class SCLabelViewTests: XCTestCase {
     @MainActor func testViewRendering() {
-        let view = SCLabelView(buttonAction: {})
+        let view = SCLabelView(config: .init(), buttonAction: {})
         XCTAssertNotNil(view.body, "The view's body should not be nil.")
     }
 
@@ -17,7 +17,7 @@ final class SCLabelViewTests: XCTestCase {
         }
         
         // Create view and trigger action
-        let view = SCLabelView(buttonAction: buttonAction)
+        let view = SCLabelView(config: .init(), buttonAction: buttonAction)
         view.buttonAction()
         
         wait(for: [expectation], timeout: 1.0)
