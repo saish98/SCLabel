@@ -56,8 +56,8 @@ public struct SCLabelConfiguration {
     let displayModel: SCLabelDisplayModel
     let theme: SCLabelTheme
     
-    init(displayModel: SCLabelDisplayModel = .init(),
-         theme: SCLabelTheme = .init()) {
+    init(displayModel: SCLabelDisplayModel,
+         theme: SCLabelTheme) {
         self.displayModel = displayModel
         self.theme = theme
     }
@@ -72,10 +72,15 @@ struct SCLabelDisplayModel {
     let title: String
     let subtitle: String
     
-    init(title: String = "Welcome to My SwiftUI View!",
-         subtitle: String = "This is a reusable view from a Swift Package.") {
+    init(title: String,
+         subtitle: String) {
         self.title = title
         self.subtitle = subtitle
+    }
+    
+    init() {
+        self.title = "Welcome to My SwiftUI View!"
+        self.subtitle = "This is a reusable view from a Swift Package."
     }
 }
 
